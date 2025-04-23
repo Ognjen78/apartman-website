@@ -1,9 +1,22 @@
+// src/App.tsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footbar";
+import Home from "./pages/Home";
+
 function App() {
   return (
-    <div className="bg-green-500 text-white text-center p-4 rounded-xl shadow-lg">
-  Ovo je Tailwind komponenta
-</div>
-
+    <div className="flex flex-col min-h-screen overscroll-none">
+      <Router>
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </main>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 
