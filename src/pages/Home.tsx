@@ -8,9 +8,8 @@ const Home = () => {
     <>
       <HeroSection />
       {/* Other sections */}
-      <Highlights />
       <FeaturesSection />
-      
+      <Highlights />
     </>
   );
 };

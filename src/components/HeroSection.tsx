@@ -7,7 +7,7 @@ const HeroSection: React.FC = () => {
   className="h-screen bg-cover bg-center flex flex-col justify-center items-center text-white relative"
   style={{ backgroundImage: `url(${balkonImage})` }}
 >
-  <div className="bg-black/40 w-full h-full absolute top-0 left-0 z-0" />
+  <div className="bg-black/30 w-full h-full absolute top-0 left-0 z-0" />
   <div className="relative z-10 text-center max-w-2xl px-6">
     <h1 className="text-5xl md:text-6xl font-serif font-bold text-white drop-shadow-lg mb-4">
       Welcome to Apartment Nina
