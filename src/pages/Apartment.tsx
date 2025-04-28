@@ -1,177 +1,469 @@
-import React from "react";
+"use client"
+
+import type React from "react"
+import { useState } from "react"
 import {
-    FaUserFriends,
-    FaBed,
-    FaDoorOpen,
-    FaWifi,
-    FaParking,
-    FaSnowflake,
-    FaTv,
-    FaSmokingBan,
-    FaDog,
-    FaClock,
-    FaMoneyBillAlt,
-    FaCalendarTimes,
-    FaBath,
-    FaMapMarkerAlt
-} from "react-icons/fa";
-import heroImage from "../assets/dubrovnik.jpg"; // Replace with your image
+  FaUserFriends,
+  FaBed,
+  FaDoorOpen,
+  FaWifi,
+  FaParking,
+  FaSnowflake,
+  FaTv,
+  FaSmokingBan,
+  FaDog,
+  FaClock,
+  FaBath,
+  FaMapMarkerAlt,
+  FaChevronRight,
+  FaChevronLeft,
+  FaInfoCircle,
+  FaCreditCard,
+  FaCalendarAlt,
+  FaHome,
+} from "react-icons/fa"
+
+// Import your images here
+// Example: import heroImage from "../assets/dubrovnik.jpg";
+
 
 const Apartment: React.FC = () => {
-    return (
-        <main className="bg-white text-gray-800 font-sans">
+  const [activeTab, setActiveTab] = useState("about")
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-            {/* Hero section */}
-            <div
-                className="h-[600px] w-full bg-cover bg-center relative flex items-center justify-center"
-                style={{ backgroundImage: `url(${heroImage})` }}
-            >
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
-                <div className="z-10 text-white text-center px-6">
-                    <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-wide drop-shadow-lg font-serif">
-                        Experience Dubrovnik in Style
-                    </h1>
-                    <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200 leading-relaxed">
-                        Your exquisite retreat offering stunning views and unparalleled comfort for an unforgettable stay.
-                    </p>
-                    <div className="mt-10 flex flex-wrap justify-center gap-8 text-white">
-                        <div className="flex flex-col items-center">
-                            <FaUserFriends className="text-4xl mb-2 " />
-                            <span className="text-sm font-medium">Up to 4 Guests</span>
-                        </div>
-                        <div className="flex flex-col items-center">
-                            <FaDoorOpen className="text-4xl mb-2" />
-                            <span className="text-sm font-medium">2 Bedrooms</span>
-                        </div>
-                        <div className="flex flex-col items-center">
-                            <FaBed className="text-4xl mb-2" />
-                            <span className="text-sm font-medium">2 Queen Beds</span>
-                        </div>
-                        <div className="flex flex-col items-center">
-                            <FaBath className="text-4xl mb-2" />
-                            <span className="text-sm font-medium">1 Modern Bathroom</span>
-                        </div>
+  // Sample images - replace with your actual images
+  const images = [
+    "https://via.placeholder.com/1800x1200",
+    "https://via.placeholder.com/1800x1200",
+    "https://via.placeholder.com/1800x1200",
+    "https://via.placeholder.com/1800x1200",
+  ]
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
+  }
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
+  }
+
+  return (
+    <main className="bg-white text-gray-800 font-sans">
+      {/* Hero section with image carousel */}
+      <div className="relative h-[85vh] w-full overflow-hidden">
+        <div className="absolute inset-0 transition-transform duration-700 ease-in-out">
+          <img
+            src={images[currentImageIndex] || "/placeholder.svg"}
+            alt="Apartment in Dubrovnik"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
+        </div>
+
+        {/* Carousel controls */}
+        <button
+          onClick={prevImage}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-md p-3 rounded-full text-white hover:bg-white/30 transition-all z-10"
+          aria-label="Previous image"
+        >
+          <FaChevronLeft className="h-6 w-6" />
+        </button>
+
+        <button
+          onClick={nextImage}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-md p-3 rounded-full text-white hover:bg-white/30 transition-all z-10"
+          aria-label="Next image"
+        >
+          <FaChevronRight className="h-6 w-6" />
+        </button>
+
+        {/* Image indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentImageIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                index === currentImageIndex ? "bg-white w-8" : "bg-white/50"
+              }`}
+              aria-label={`Go to image ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        <div className="absolute inset-x-0 bottom-0 z-10 text-white text-center px-6 pb-20">
+          <div className="max-w-5xl mx-auto">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight drop-shadow-lg">
+              Experience Dubrovnik in Style
+            </h1>
+            <p className="text-lg max-w-2xl mx-auto text-gray-100 leading-relaxed mb-8">
+              Your exquisite retreat offering stunning views and unparalleled comfort for an unforgettable stay.
+            </p>
+
+            {/* Key features */}
+            <div className="flex flex-wrap justify-center gap-6 md:gap-12 text-white mt-8">
+              <div className="flex items-center gap-3 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+                <FaUserFriends className="h-5 w-5" />
+                <span className="text-sm font-medium">Up to 4 Guests</span>
+              </div>
+              <div className="flex items-center gap-3 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+                <FaDoorOpen className="h-5 w-5" />
+                <span className="text-sm font-medium">2 Bedrooms</span>
+              </div>
+              <div className="flex items-center gap-3 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+                <FaBed className="h-5 w-5" />
+                <span className="text-sm font-medium">2 Queen Beds</span>
+              </div>
+              <div className="flex items-center gap-3 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+                <FaBath className="h-5 w-5" />
+                <span className="text-sm font-medium">1 Modern Bathroom</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Location badge */}
+      <div className="relative -mt-8 z-20 flex justify-center">
+        <div className="flex items-center gap-2 bg-white px-6 py-3 rounded-full shadow-lg text-gray-700">
+          <FaMapMarkerAlt className="h-5 w-5 text-rose-500" />
+          <span className="font-medium">Dubrovnik, Croatia</span>
+        </div>
+      </div>
+
+      {/* Main content */}
+      <section className="max-w-5xl mx-auto py-16 px-6 lg:px-8">
+        {/* Tabs */}
+        <div className="mb-12 border-b border-gray-200">
+          <div className="flex overflow-x-auto hide-scrollbar gap-8">
+            {["about", "amenities", "sleeping", "rules", "payment"].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`pb-4 px-1 font-medium text-gray-500 whitespace-nowrap transition-all ${
+                  activeTab === tab ? "text-gray-900 border-b-2 border-gray-900" : ""
+                }`}
+              >
+                {tab === "about" && "About"}
+                {tab === "amenities" && "Amenities"}
+                {tab === "sleeping" && "Sleeping"}
+                {tab === "rules" && "House Rules"}
+                {tab === "payment" && "Payment & Cancellation"}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Tab content */}
+        <div className="space-y-16">
+          {/* About */}
+          <div className={activeTab === "about" ? "block" : "hidden"}>
+            <div className="prose prose-lg max-w-none">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">About Your Coastal Haven</h2>
+              <p className="text-gray-700 leading-relaxed">
+                Nestled in a prime location, our recently renovated apartment is the perfect sanctuary for your
+                Dubrovnik getaway. Enjoy a seamless blend of modern luxury and home-like comfort, just moments away from
+                the vibrant city center and beautiful beaches.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                The apartment features two beautifully appointed bedrooms with plush queen-size beds, ensuring restful
+                nights. The contemporary bathroom boasts a spacious walk-in shower. Prepare delicious meals in the fully
+                equipped, modern kitchen and unwind in the bright and airy living room. Step out onto the terrace to
+                soak in the breathtaking views that will make your stay truly special.
+              </p>
+
+              <div className="mt-10 bg-gray-50 p-8 rounded-2xl">
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">Key Features</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {[
+                    "State-of-the-art kitchen with all essentials",
+                    "Elegant bathroom with a walk-in shower",
+                    "Comfortable air conditioning and efficient heating",
+                    "High-speed Wi-Fi and a Smart TV for entertainment",
+                    "Convenient private parking",
+                    "In-unit washing machine and ironing facilities",
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <div className="mt-1 bg-white p-1 rounded-full border border-gray-200">
+                        <FaChevronRight className="h-4 w-4 text-gray-500" />
+                      </div>
+                      <span className="text-gray-700">{feature}</span>
                     </div>
+                  ))}
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Amenities */}
+          <div className={activeTab === "amenities" ? "block" : "hidden"}>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Modern Amenities for Your Comfort</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: <FaWifi className="h-6 w-6" />,
+                  title: "Free High-Speed Wi-Fi",
+                  description: "Stay connected with our reliable high-speed internet throughout your stay.",
+                },
+                {
+                  icon: <FaParking className="h-6 w-6" />,
+                  title: "Secured Private Parking",
+                  description: "Enjoy the convenience of a dedicated parking space for your vehicle.",
+                },
+                {
+                  icon: <FaSnowflake className="h-6 w-6" />,
+                  title: "Air Conditioning & Heating",
+                  description: "Stay comfortable year-round with climate control in all rooms.",
+                },
+                {
+                  icon: <FaTv className="h-6 w-6" />,
+                  title: "Smart TV with Streaming",
+                  description: "Access your favorite streaming services on our modern Smart TV.",
+                },
+                {
+                  icon: <FaHome className="h-6 w-6" />,
+                  title: "Fully Equipped Kitchen",
+                  description: "Cook like you're at home with our modern appliances and cookware.",
+                },
+                {
+                  icon: <FaBath className="h-6 w-6" />,
+                  title: "Luxury Bathroom",
+                  description: "Enjoy our modern bathroom with walk-in shower and premium fixtures.",
+                },
+              ].map((amenity, index) => (
+                <div
+                  key={index}
+                  className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div className="bg-gray-50 p-3 rounded-lg w-fit mb-4">{amenity.icon}</div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{amenity.title}</h3>
+                  <p className="text-gray-600 text-sm">{amenity.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Sleeping Arrangements */}
+          <div className={activeTab === "sleeping" ? "block" : "hidden"}>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Relaxing Sleeping Arrangements</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <div className="h-48 bg-gray-100 relative">
+                  <img
+                    src="https://via.placeholder.com/800x600"
+                    alt="Master Bedroom"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Master Bedroom</h3>
+                  <div className="flex items-center gap-2 text-gray-600 mb-4">
+                    <FaBed className="h-5 w-5" />
+                    <span>1 Queen Bed</span>
+                  </div>
+                  <p className="text-gray-600">
+                    Spacious master bedroom with premium linens, blackout curtains, and ample storage space.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <div className="h-48 bg-gray-100 relative">
+                  <img
+                    src="https://via.placeholder.com/800x600"
+                    alt="Second Bedroom"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Second Bedroom</h3>
+                  <div className="flex items-center gap-2 text-gray-600 mb-4">
+                    <FaBed className="h-5 w-5" />
+                    <span>1 Queen Bed</span>
+                  </div>
+                  <p className="text-gray-600">
+                    Comfortable second bedroom with quality linens and a peaceful ambiance for restful sleep.
+                  </p>
+                </div>
+              </div>
+
+              <div className="md:col-span-2 bg-gray-50 p-6 rounded-xl mt-4">
+                <div className="flex items-start gap-4">
+                  <FaInfoCircle className="h-5 w-5 text-gray-400 mt-1" />
+                  <p className="text-gray-600">
+                    A baby crib is available upon request for families with young children. Please let us know in
+                    advance if you need this arrangement.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* House Rules */}
+          <div className={activeTab === "rules" ? "block" : "hidden"}>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Simple House Rules</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  icon: <FaSmokingBan className="h-6 w-6" />,
+                  title: "No Smoking Allowed",
+                  description: "Smoking is not permitted anywhere in the apartment or on the balcony.",
+                },
+                {
+                  icon: <FaDog className="h-6 w-6" />,
+                  title: "Pets Allowed (Upon Arrangement)",
+                  description: "Well-behaved pets are welcome with prior approval. Please inform us when booking.",
+                },
+                {
+                  icon: <FaClock className="h-6 w-6" />,
+                  title: "Check-in: After 3:00 PM",
+                  description: "Early check-in may be available upon request, subject to availability.",
+                },
+                {
+                  icon: <FaClock className="h-6 w-6" />,
+                  title: "Check-out: Before 11:00 AM",
+                  description: "Late check-out may be arranged in advance, depending on availability.",
+                },
+              ].map((rule, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-100 shadow-sm"
+                >
+                  <div className="bg-gray-50 p-3 rounded-lg">{rule.icon}</div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">{rule.title}</h3>
+                    <p className="text-gray-600 text-sm">{rule.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            {/* Main content */}
-            <section className="max-w-7xl mx-auto py-20 px-6 lg:px-8 space-y-20">
+            <div className="mt-8 p-6 bg-gray-50 rounded-xl">
+              <p className="text-gray-600">
+                We kindly ask all guests to respect the apartment and our neighbors. Quiet hours are from 10:00 PM to
+                8:00 AM. Please treat our home as you would your own.
+              </p>
+            </div>
+          </div>
 
-                {/* About */}
-                <div className="space-y-8 text-lg text-gray-700 leading-relaxed">
-                    <h2 className="text-3xl font-bold text-black font-serif">About Your Coastal Haven</h2>
-                    <p>
-                        Nestled in a prime location, our recently renovated apartment is the perfect sanctuary for your Dubrovnik getaway. Enjoy a seamless blend of modern luxury and home-like comfort, just moments away from the vibrant city center and beautiful beaches.
-                    </p>
-                    <p>
-                        The apartment features two beautifully appointed bedrooms with plush queen-size beds, ensuring restful nights. The contemporary bathroom boasts a spacious walk-in shower. Prepare delicious meals in the fully equipped, modern kitchen and unwind in the bright and airy living room. Step out onto the terrace to soak in the breathtaking views that will make your stay truly special.
-                    </p>
-                    <div className="mt-6">
-                        <h3 className="text-xl font-semibold text-primary">Key Features:</h3>
-                        <ul className="list-disc list-inside space-y-2 mt-8">
-                            <li>State-of-the-art kitchen with all essentials</li>
-                            <li>Elegant bathroom with a walk-in shower</li>
-                            <li>Comfortable air conditioning and efficient heating</li>
-                            <li>High-speed Wi-Fi and a Smart TV for entertainment</li>
-                            <li>Convenient private parking</li>
-                            <li>In-unit washing machine and ironing facilities</li>
-                        </ul>
-                    </div>
-                </div>
-
-                {/* Amenities */}
-                <div>
-                    <h3 className="text-2xl font-bold text-black font-serif mb-6">Modern Amenities for Your Comfort</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-primary">
-                        <div className="flex items-center gap-3 text-lg">
-                            <FaWifi className="text-xl" /> <span className="font-medium">Free High-Speed Wi-Fi</span>
-                        </div>
-                        <div className="flex items-center gap-3 text-lg">
-                            <FaParking className="text-xl" /> <span className="font-medium">Secured Private Parking</span>
-                        </div>
-                        <div className="flex items-center gap-3 text-lg">
-                            <FaSnowflake className="text-xl" /> <span className="font-medium">Air Conditioning & Heating</span>
-                        </div>
-                        <div className="flex items-center gap-3 text-lg">
-                            <FaTv className="text-xl" /> <span className="font-medium">Smart TV with Streaming</span>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Sleeping Arrangements */}
-                <div>
-                    <h3 className="text-2xl font-bold text-black font-serif mb-6">Relaxing Sleeping Arrangements</h3>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                        Two well-appointed bedrooms, each featuring a comfortable queen-size bed with premium linens. A baby crib is available upon request for families with young children.
-                    </p>
-                </div>
-
-                {/* House Rules */}
-                <div>
-                    <h3 className="text-2xl font-bold text-black font-serif mb-6">Our Simple House Rules</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-primary">
-                        <div className="flex items-center gap-3 text-lg">
-                            <FaSmokingBan className="text-xl" /> <span className="font-medium">No Smoking Allowed</span>
-                        </div>
-                        <div className="flex items-center gap-3 text-lg">
-                            <FaDog className="text-xl" /> <span className="font-medium">Pets Allowed (Upon Prior Arrangement)</span>
-                        </div>
-                        <div className="flex items-center gap-3 text-lg">
-                            <FaClock className="text-xl" /> <span className="font-medium">Check-in: After 3:00 PM</span>
-                        </div>
-                        <div className="flex items-center gap-3 text-lg">
-                            <FaClock className="text-xl" /> <span className="font-medium">Check-out: Before 11:00 AM</span>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Payment & Cancellation */}
-                <div>
-                    <h3 className="text-2xl font-bold text-black font-serif mb-6">Payment & Cancellation Policies</h3>
-                    <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
-                        <div className="flex items-start gap-4">
-                            <FaMoneyBillAlt className="text-primary text-xl mt-1" />
-                            <p><span className="font-semibold">Payment:</span> A 10% deposit is required at the time of booking. The remaining balance is due 30 days prior to your arrival.</p>
-                        </div>
-                        <div className="flex items-start gap-4">
-                            <FaCalendarTimes className="text-primary text-xl mt-1" />
-                            <p><span className="font-semibold">Cancellation:</span> Enjoy free cancellation if you cancel up to 30 days before your check-in date. Cancellations made between 10 and 30 days before arrival will receive a 50% refund.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Sticky Booking Bar */}
-            <div className="sticky bottom-0 bg-white shadow-xl border-t border-gray-200 z-50">
-                <div className="max-w-screen-xl mx-auto px-6 py-4 flex items-center justify-between">
-                    {/* Left: Price */}
-                    <div className="text-left">
-                        <span className="text-lg font-semibold text-black">
-                            Starting from <span className="text-primary text-xl">€99</span> per night
+          {/* Payment & Cancellation */}
+          <div className={activeTab === "payment" ? "block" : "hidden"}>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Payment & Cancellation Policies</h2>
+            <div className="space-y-8">
+              <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                <div className="flex items-start gap-4">
+                  <div className="bg-gray-50 p-3 rounded-lg">
+                    <FaCreditCard className="h-6 w-6 text-gray-700" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Payment Schedule</h3>
+                    <ul className="space-y-2 text-gray-600">
+                      <li className="flex items-start gap-2">
+                        <FaChevronRight className="h-5 w-5 text-gray-400 shrink-0 mt-0.5" />
+                        <span>
+                          <span className="font-medium">Deposit:</span> A 10% deposit is required at the time of booking
+                          to secure your reservation.
                         </span>
-                    </div>
-
-                    {/* Center: Location */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-2 text-sm text-gray-500">
-                        <FaMapMarkerAlt className="text-red-500" />
-                        <span>Dubrovnik, Croatia</span>
-                    </div>
-
-                    {/* Right: Booking Button */}
-                    <a
-                        href="https://www.airbnb.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-primary-dark transition duration-300 shadow-md"
-                    >
-                        Book Your Stay
-                    </a>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <FaChevronRight className="h-5 w-5 text-gray-400 shrink-0 mt-0.5" />
+                        <span>
+                          <span className="font-medium">Balance:</span> The remaining balance is due 30 days prior to
+                          your arrival date.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <FaChevronRight className="h-5 w-5 text-gray-400 shrink-0 mt-0.5" />
+                        <span>
+                          <span className="font-medium">Payment Methods:</span> We accept credit cards, PayPal, and bank
+                          transfers.
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
+              </div>
+
+              <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                <div className="flex items-start gap-4">
+                  <div className="bg-gray-50 p-3 rounded-lg">
+                    <FaCalendarAlt className="h-6 w-6 text-gray-700" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Cancellation Policy</h3>
+                    <ul className="space-y-2 text-gray-600">
+                      <li className="flex items-start gap-2">
+                        <FaChevronRight className="h-5 w-5 text-gray-400 shrink-0 mt-0.5" />
+                        <span>
+                          <span className="font-medium">Full Refund:</span> Cancel up to 30 days before check-in for a
+                          full refund of your payment.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <FaChevronRight className="h-5 w-5 text-gray-400 shrink-0 mt-0.5" />
+                        <span>
+                          <span className="font-medium">50% Refund:</span> Cancellations made between 10 and 30 days
+                          before arrival will receive a 50% refund.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <FaChevronRight className="h-5 w-5 text-gray-400 shrink-0 mt-0.5" />
+                        <span>
+                          <span className="font-medium">No Refund:</span> Cancellations made less than 10 days before
+                          check-in are not eligible for a refund.
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 p-6 rounded-xl">
+                <div className="flex items-start gap-4">
+                  <FaInfoCircle className="h-5 w-5 text-gray-400 mt-1" />
+                  <p className="text-gray-600">
+                    We understand that plans can change. If you need to modify your booking, please contact us as soon
+                    as possible, and we'll do our best to accommodate your needs.
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-        </main>
-    );
-};
+      {/* Sticky Booking Bar */}
+      <div className="sticky bottom-0 bg-white shadow-xl border-t border-gray-200 z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+          {/* Left: Price */}
+          <div className="text-left">
+            <div className="flex items-baseline gap-1">
+              <span className="text-3xl font-bold text-gray-900">€99</span>
+              <span className="text-gray-500">/night</span>
+            </div>
+            <div className="text-sm text-gray-500">Starting from</div>
+          </div>
 
-export default Apartment;
+          {/* Center: Location (hidden on mobile) */}
+          <div className="hidden md:flex items-center gap-2 text-sm text-gray-500">
+            <FaMapMarkerAlt className="h-4 w-4 text-rose-500" />
+            <span>Dubrovnik, Croatia</span>
+          </div>
+
+          {/* Right: Booking Button */}
+          <a
+            href="https://www.airbnb.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-r from-rose-500 to-pink-600 text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-300 flex items-center gap-2"
+          >
+            <span>Book Your Stay</span>
+            <FaChevronRight className="h-4 w-4" />
+          </a>
+        </div>
+      </div>
+    </main>
+  )
+}
+
+export default Apartment
