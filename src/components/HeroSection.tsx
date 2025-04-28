@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react"
 import { FaChevronDown } from "react-icons/fa"
 
 // Ensure this path is correct
-// import balkonImage from "../assets/dubrovnik.jpg"
+import balkonImage from "../assets/dubrovnik.jpg"
 
 const HeroSection: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0)
@@ -22,7 +22,6 @@ const HeroSection: React.FC = () => {
   }, [])
 
   // Replace with your actual image path
-  const balkonImage = "https://via.placeholder.com/1920x1080"
 
   return (
     <section className="relative h-screen w-full overflow-hidden">

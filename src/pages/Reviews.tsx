@@ -43,7 +43,6 @@ const ReviewsPage: React.FC = () => {
       date: "April 15, 2025",
       rating: 5,
       text: "Apartment Nina exceeded all our expectations. The views are even more breathtaking than the photos suggest, and the location is perfect for exploring Dubrovnik. The apartment itself is beautifully furnished with everything we needed for a comfortable stay. The host was incredibly responsive and provided excellent recommendations for local restaurants and activities. We'll definitely be back!",
-      image: "https://via.placeholder.com/150",
       platform: "Airbnb",
     },
     {
@@ -53,7 +52,6 @@ const ReviewsPage: React.FC = () => {
       date: "March 28, 2025",
       rating: 5,
       text: "We had an amazing stay at Apartment Nina. The apartment is beautifully furnished, spotlessly clean, and the host was incredibly helpful with local recommendations. The kitchen was well-equipped for cooking, and the beds were very comfortable. The location is perfect - quiet but still close to everything. The perfect base for our Croatian adventure.",
-      image: "https://via.placeholder.com/150",
       platform: "Booking.com",
       response: {
         text: "Thank you so much for your kind words, Marco! We're delighted that you enjoyed your stay and found the apartment comfortable. We hope to welcome you back soon!",
@@ -67,7 +65,6 @@ const ReviewsPage: React.FC = () => {
       date: "March 10, 2025",
       rating: 5,
       text: "The apartment is a true gem in Dubrovnik. Modern amenities, comfortable beds, and that view! Morning coffee on the terrace watching the sun rise over the Adriatic was the highlight of our trip. The host provided excellent communication throughout our stay and even arranged airport transfers for us. Highly recommended!",
-      image: "https://via.placeholder.com/150",
       platform: "Airbnb",
     },
     {
@@ -86,7 +83,6 @@ const ReviewsPage: React.FC = () => {
       date: "February 15, 2025",
       rating: 5,
       text: "Magnifique! The apartment was perfect for our romantic getaway. The attention to detail in the design and amenities made us feel like we were in a luxury hotel, but with all the comforts of home. The location is ideal for exploring the old town and beaches. We particularly appreciated the restaurant recommendations from our host.",
-      image: "https://via.placeholder.com/150",
       platform: "TripAdvisor",
     },
     {
@@ -114,7 +110,6 @@ const ReviewsPage: React.FC = () => {
       date: "December 12, 2024",
       rating: 5,
       text: "We stayed at Apartment Nina during the winter and it was still a magical experience. The apartment is cozy and warm, with incredible views of the Adriatic. The host went above and beyond to make our stay special, even decorating for the holidays. The location is perfect for exploring Dubrovnik without the summer crowds.",
-      image: "https://via.placeholder.com/150",
       platform: "Direct",
       response: {
         text: "Thank you for your wonderful review, Lars! We're so happy you enjoyed your winter stay with us. The holiday season in Dubrovnik is indeed special, and we're glad we could make your experience memorable. We hope to welcome you back in the future!",
@@ -150,7 +145,6 @@ const ReviewsPage: React.FC = () => {
       date: "October 20, 2024",
       rating: 5,
       text: "Apartment Nina is a perfect place to stay in Dubrovnik. The location is ideal - close enough to walk to all the attractions but far enough from the crowds to be peaceful. The apartment itself is beautiful, clean, and has everything you need. The host's recommendations for restaurants were spot on. We had an amazing time!",
-      image: "https://via.placeholder.com/150",
       platform: "Google",
     },
     {

@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
     <footer className="bg-gradient-to-r from-rose-700 to-rose-600 text-white font-sans">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Column 1: About */}
           <div className="space-y-4">
             <h2 className="font-serif text-2xl font-semibold text-white">Apartment Nina</h2>
@@ -65,7 +65,31 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          
+          {/* Column 2: Contact */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-medium text-white border-b border-rose-400/30 pb-2">Contact Us</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <FaMapMarkerAlt className="mt-1 mr-3 text-amber-300 flex-shrink-0" />
+                <span className="text-rose-100">Ul. Petra Krešimira IV 12, 20000 Dubrovnik, Croatia</span>
+              </li>
+              <li className="flex items-center">
+                <FaPhone className="mr-3 text-amber-300 flex-shrink-0" />
+                <a href="tel:+38520123456" className="text-rose-100 hover:text-white transition-colors">
+                  +385 20 123 456
+                </a>
+              </li>
+              <li className="flex items-center">
+                <FaEnvelope className="mr-3 text-amber-300 flex-shrink-0" />
+                <a href="mailto:info@apartment-nina.com" className="text-rose-100 hover:text-white transition-colors">
+                  info@apartment-nina.com
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Quick Links */}
           <div className="space-y-4">
             <h3 className="text-lg font-medium text-white border-b border-rose-400/30 pb-2">Quick Links</h3>
             <ul className="space-y-2">
@@ -90,48 +114,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Contact */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-white border-b border-rose-400/30 pb-2">Contact Us</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start">
-                <FaMapMarkerAlt className="mt-1 mr-3 text-amber-300 flex-shrink-0" />
-                <span className="text-rose-100">Ul. Petra Krešimira IV 12, 20000 Dubrovnik, Croatia</span>
-              </li>
-              <li className="flex items-center">
-                <FaPhone className="mr-3 text-amber-300 flex-shrink-0" />
-                <a href="tel:+38520123456" className="text-rose-100 hover:text-white transition-colors">
-                  +385 20 123 456
-                </a>
-              </li>
-              <li className="flex items-center">
-                <FaEnvelope className="mr-3 text-amber-300 flex-shrink-0" />
-                <a href="mailto:info@apartment-nina.com" className="text-rose-100 hover:text-white transition-colors">
-                  info@apartment-nina.com
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 4: Newsletter */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-white border-b border-rose-400/30 pb-2">Newsletter</h3>
-            <p className="text-rose-100 text-sm">Subscribe to receive special offers and updates.</p>
-            <form className="mt-2 space-y-2">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="w-full px-4 py-2 rounded-md bg-white/10 border border-rose-400/30 text-white placeholder-rose-200 focus:outline-none focus:ring-2 focus:ring-amber-300"
-                required
-              />
-              <button
-                type="submit"
-                className="w-full bg-amber-500 hover:bg-amber-400 text-rose-900 font-medium py-2 px-4 rounded-md transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
         </div>
       </div>
 

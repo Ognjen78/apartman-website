@@ -58,15 +58,17 @@ const Rates = () => {
   return (
     <main className="bg-gradient-to-b from-gray-50 to-white text-gray-800 font-sans py-24 px-6 lg:px-8">
       <div className="max-w-6xl mx-auto space-y-20">
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl  md:text-5xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent tracking-tight leading-tight">
-            Pricing & Availability
-          </h1>
-          <p className="text-gray-500 max-w-2xl mx-auto">
-            Find the perfect time for your stay with our seasonal rates. All prices include utilities, WiFi, and
-            standard cleaning.
-          </p>
-        </div>
+        {/* Page Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <h1 className="text-4xl md:text-5xl font-serif font-bold text-center mb-4">
+          <span className="bg-gradient-to-r from-rose-600 to-amber-600 bg-clip-text text-transparent">            Pricing & Availability
+          </span>
+        </h1>
+        <p className="text-center text-gray-600 max-w-3xl mx-auto">
+        Find the perfect time for your stay with our seasonal rates. All prices include utilities, WiFi, and
+        standard cleaning.
+        </p>
+      </div>
 
         {/* Season Tabs */}
         <div className="flex flex-wrap justify-center gap-2 md:gap-4">

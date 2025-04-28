@@ -3,13 +3,14 @@
 import React, { useState } from "react"
 import { motion } from "framer-motion"
 
+import apartmentImage from "../assets/soba1.avif";
+
 // Replace with your actual image paths
-const apartmentImage = "https://via.placeholder.com/800x600"
-const viewImage = "https://via.placeholder.com/800x600"
-const soba1 = "https://via.placeholder.com/800x600"
-const kitchen = "https://via.placeholder.com/800x600"
-const bathroom = "https://via.placeholder.com/800x600"
-const terrace = "https://via.placeholder.com/800x600"
+import viewImage from "../assets/balkon.avif";
+import soba1 from "../assets/soba2.avif";
+import kitchen from "../assets/kitchen.avif";
+import bathroom from "../assets/bathroom.avif"
+import terrace from  "../assets/terrace.avif";
 
 const FeaturesSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState("interior")

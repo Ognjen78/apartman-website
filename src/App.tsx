@@ -7,6 +7,8 @@ import Apartment from "./pages/Apartment";
 import Rates from "./pages/Rates";
 import ReviewsPage from "./pages/Reviews";
 import LocationPage from "./pages/Location";
+import Gallery from "./pages/Gallery";
+import ContactPage from "./pages/Contact";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
             <Route path="/rates" element={<Rates />} />
             <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/location" element={<LocationPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/gallery" element={<Gallery />} />
           </Routes>
         </main>
         <Footer />

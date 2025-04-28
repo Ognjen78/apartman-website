@@ -23,6 +23,12 @@ import {
   FaHome,
 } from "react-icons/fa"
 
+import image1 from '../assets/balkon.avif';
+  import image2 from '../assets/soba1.avif';
+  import image3 from '../assets/soba2.avif';
+  import image4 from '../assets/soba22.jpeg';
+  
+
 // Import your images here
 // Example: import heroImage from "../assets/dubrovnik.jpg";
 
@@ -31,13 +37,14 @@ const Apartment: React.FC = () => {
   const [activeTab, setActiveTab] = useState("about")
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  // Sample images - replace with your actual images
+
   const images = [
-    "https://via.placeholder.com/1800x1200",
-    "https://via.placeholder.com/1800x1200",
-    "https://via.placeholder.com/1800x1200",
-    "https://via.placeholder.com/1800x1200",
-  ]
+    image1,
+    image2,
+    image3,
+    image4,
+  ];
+  
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
@@ -120,14 +127,6 @@ const Apartment: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Location badge */}
-      <div className="relative -mt-8 z-20 flex justify-center">
-        <div className="flex items-center gap-2 bg-white px-6 py-3 rounded-full shadow-lg text-gray-700">
-          <FaMapMarkerAlt className="h-5 w-5 text-rose-500" />
-          <span className="font-medium">Dubrovnik, Croatia</span>
         </div>
       </div>
 
@@ -250,7 +249,7 @@ const Apartment: React.FC = () => {
               <div className="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                 <div className="h-48 bg-gray-100 relative">
                   <img
-                    src="https://via.placeholder.com/800x600"
+                    src={images[1]}
                     alt="Master Bedroom"
                     className="h-full w-full object-cover"
                   />
@@ -270,7 +269,7 @@ const Apartment: React.FC = () => {
               <div className="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                 <div className="h-48 bg-gray-100 relative">
                   <img
-                    src="https://via.placeholder.com/800x600"
+                    src={images[2]}
                     alt="Second Bedroom"
                     className="h-full w-full object-cover"
                   />
