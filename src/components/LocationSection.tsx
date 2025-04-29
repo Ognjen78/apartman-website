@@ -51,7 +51,7 @@ const LocationSection: React.FC = () => {
           <div className="rounded-xl overflow-hidden shadow-xl h-[400px] lg:h-[500px]">
             {/* Replace with your actual map or use an iframe for Google Maps */}
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23277.17541456096!2d18.09012543955078!3d42.64266239999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134b8ba20835e87d%3A0x400ad50862bd500!2sDubrovnik%2C%20Croatia!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.2427640889694!2d18.0723!3d42.6568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134b8a5c5e4c6e21%3A0x1f3147d79e6a618e!2sDubrovačkog%20odreda%2014%2C%2020000%2C%20Dubrovnik%2C%20Croatia!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus"
               width="100%"
               height="100%"
               style={{ border: 0 }}

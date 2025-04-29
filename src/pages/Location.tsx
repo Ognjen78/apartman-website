@@ -23,7 +23,7 @@ const InteractiveMap = () => {
   return (
     <div className="relative h-[500px] w-full rounded-xl overflow-hidden shadow-lg border border-gray-200">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11622.954786406802!2d18.09075391109815!3d42.64266239999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134b8ba20835e87d%3A0x400ad50862bd500!2sDubrovnik%2C%20Croatia!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.2427640889694!2d18.0723!3d42.6568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134b8a5c5e4c6e21%3A0x1f3147d79e6a618e!2sDubrovačkog%20odreda%2014%2C%2020000%2C%20Dubrovnik%2C%20Croatia!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus"
         width="100%"
         height="100%"
         style={{ border: 0 }}
@@ -39,7 +39,7 @@ const InteractiveMap = () => {
           <MapPin className="text-rose-600 h-5 w-5 flex-shrink-0" />
           <span className="font-medium">Apartment Nina</span>
         </div>
-        <p className="text-sm text-gray-600 mt-1">Ul. Petra Krešimira IV 12, 20000 Dubrovnik, Croatia</p>
+        <p className="text-sm text-gray-600 mt-1">Ul. Dubrovaćkog odreda 14, 20000 Dubrovnik, Croatia</p>
       </div>
 
       {/* Map controls */}
@@ -169,7 +169,7 @@ const LocationPage = () => {
                   <MapPin className="text-rose-600 h-5 w-5 flex-shrink-0 mt-1" />
                   <div>
                     <p className="text-gray-700 font-medium">Apartment Nina</p>
-                    <p className="text-gray-600">Ul. Petra Krešimira IV 12</p>
+                    <p className="text-gray-600">Ul. Dubrovaćkog odreda 14</p>
                     <p className="text-gray-600">20000 Dubrovnik, Croatia</p>
                   </div>
                 </div>
@@ -186,10 +186,7 @@ const LocationPage = () => {
                   <span>Get Directions</span>
                 </a>
 
-                <button className="inline-flex items-center gap-2 border border-gray-300 bg-white text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors">
-                  <Clock className="h-4 w-4" />
-                  <span>Calculate ETA</span>
-                </button>
+                
               </div>
             </div>
 
@@ -306,30 +303,7 @@ const LocationPage = () => {
                 </div>
 
                 <div className="space-y-6">
-                  <div className="rounded-xl overflow-hidden h-64 relative">
-                    <img
-                      src="/placeholder.svg?height=600&width=800"
-                      alt="Neighborhood view"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="rounded-xl overflow-hidden h-40 relative">
-                      <img
-                        src="/placeholder.svg?height=400&width=600"
-                        alt="Local street"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="rounded-xl overflow-hidden h-40 relative">
-                      <img
-                        src="/placeholder.svg?height=400&width=600"
-                        alt="Nearby cafe"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
+                  
 
                   <div className="bg-amber-50 border border-amber-100 rounded-xl p-5">
                     <h4 className="font-semibold text-amber-800 mb-2 flex items-center gap-2">

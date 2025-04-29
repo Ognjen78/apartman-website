@@ -437,7 +437,7 @@ const Apartment: React.FC = () => {
           {/* Left: Price */}
           <div className="text-left">
             <div className="flex items-baseline gap-1">
-              <span className="text-3xl font-bold text-gray-900">€99</span>
+              <span className="text-3xl font-bold text-gray-900">€195</span>
               <span className="text-gray-500">/night</span>
             </div>
             <div className="text-sm text-gray-500">Starting from</div>

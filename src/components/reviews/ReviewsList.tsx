@@ -1,7 +1,7 @@
 import type React from "react"
-import { FaStar, FaQuoteLeft } from "react-icons/fa"
-import { SiAirbnb, SiGooglemaps, SiTripadvisor } from "react-icons/si"
-import { HiUser, HiReply } from "react-icons/hi"
+import { StarIcon as FaStar, QuoteIcon as FaQuoteLeft } from "lucide-react"
+import { SiAirbnb } from "react-icons/si"
+import { HiReply } from "react-icons/hi"
 import type { Review } from "../../pages/Reviews"
 
 interface ReviewsListProps {
@@ -9,27 +9,12 @@ interface ReviewsListProps {
 }
 
 const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
-  const getPlatformIcon = (platform: string) => {
-    switch (platform) {
-      case "Airbnb":
-        return <SiAirbnb className="text-[#FF5A5F]" />
-      case "Google":
-        return <SiGooglemaps className="text-[#4285F4]" />
-      case "TripAdvisor":
-        return <SiTripadvisor className="text-[#00AF87]" />
-      case "Direct":
-        return <HiUser className="text-gray-600" />
-      default:
-        return null
-    }
-  }
-
   return (
     <div className="space-y-8">
       {reviews.length === 0 ? (
         <div className="bg-white p-8 rounded-xl shadow-md text-center">
-          <h3 className="text-xl font-medium text-gray-800 mb-2">No reviews match your filters</h3>
-          <p className="text-gray-600">Try adjusting your filters to see more reviews.</p>
+          <h3 className="text-xl font-medium text-gray-800 mb-2">No reviews found</h3>
+          <p className="text-gray-600">Check back soon for new reviews.</p>
         </div>
       ) : (
         reviews.map((review) => (
@@ -54,7 +39,9 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
                   <div className="flex items-center justify-between">
                     <h3 className="text-lg font-medium text-gray-900">{review.name}</h3>
                     <div className="flex items-center">
-                      <div className="mr-2">{getPlatformIcon(review.platform)}</div>
+                      <div className="mr-2">
+                        <SiAirbnb className="text-[#FF5A5F]" />
+                      </div>
                       <span className="text-sm text-gray-500">{review.date}</span>
                     </div>
                   </div>

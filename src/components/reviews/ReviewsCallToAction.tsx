@@ -1,5 +1,5 @@
 import type React from "react"
-import { FaPencilAlt } from "react-icons/fa"
+import { SiAirbnb } from "react-icons/si"
 
 const ReviewsCallToAction: React.FC = () => {
   return (
@@ -12,22 +12,13 @@ const ReviewsCallToAction: React.FC = () => {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <a
-            href="https://www.airbnb.com/rooms/50532497?_set_bev_on_new_domain=1745236777_EAMjkyMmNlNGVhYT&source_impression_id=p3_1745422175_P36nrcJ82tyM0GFz&locale=en"
+            href="https://www.airbnb.com/rooms/50532497/reviews?_set_bev_on_new_domain=1745236777_EAMjkyMmNlNGVhYT&source_impression_id=p3_1745422175_P36nrcJ82tyM0GFz&locale=en"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white text-rose-600 px-6 py-3 rounded-full font-medium flex items-center gap-2 hover:bg-gray-100 transition-colors"
           >
-            <FaPencilAlt />
+            <SiAirbnb className="text-[#FF5A5F]" />
             <span>Leave a Review on Airbnb</span>
-          </a>
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=Apartment+Nina+Dubrovnik"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-medium flex items-center gap-2 hover:bg-white/10 transition-colors"
-          >
-            <FaPencilAlt />
-            <span>Review on Google</span>
           </a>
         </div>
       </div>

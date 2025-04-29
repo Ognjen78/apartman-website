@@ -2,7 +2,6 @@ import type React from "react"
 import {
   FaFacebook,
   FaInstagram,
-  FaTripadvisor,
   FaAirbnb,
   FaMapMarkerAlt,
   FaPhone,
@@ -44,15 +43,7 @@ const Footer: React.FC = () => {
               >
                 <FaInstagram size={20} />
               </a>
-              <a
-                href="https://tripadvisor.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-amber-300 transition-colors"
-                aria-label="TripAdvisor"
-              >
-                <FaTripadvisor size={20} />
-              </a>
+              
               <a
                 href="https://airbnb.com"
                 target="_blank"
@@ -72,7 +63,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <FaMapMarkerAlt className="mt-1 mr-3 text-amber-300 flex-shrink-0" />
-                <span className="text-rose-100">Ul. Petra Krešimira IV 12, 20000 Dubrovnik, Croatia</span>
+                <span className="text-rose-100">Ul. Dubrovačkog odreda 14, 20000 Dubrovnik, Croatia</span>
               </li>
               <li className="flex items-center">
                 <FaPhone className="mr-3 text-amber-300 flex-shrink-0" />

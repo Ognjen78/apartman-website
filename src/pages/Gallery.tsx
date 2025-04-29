@@ -4,6 +4,16 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 
+import livingroom from "../assets/livingroom.avif"
+import soba1 from "../assets/soba1.avif"
+import bathroom from "../assets/bathroom.avif"
+import kitchen from "../assets/kitchen.avif"
+import balkon from "../assets/balkon.avif"
+import soba2 from "../assets/soba2.avif"
+import nightview from "../assets/nightview.avif"
+import single from "../assets/single.avif"
+
+
 // Gallery categories
 const categories = [
   { id: "all", label: "All Photos" },
@@ -18,77 +28,77 @@ const categories = [
 const galleryImages = [
   {
     id: 1,
-    src: "/placeholder.svg?height=600&width=800",
-    alt: "Living room with sea view",
+    src: livingroom,
+    alt: "Living room",
     category: "interior",
     featured: true,
   },
   {
     id: 2,
-    src: "/placeholder.svg?height=800&width=600",
+    src: soba1,
     alt: "Master bedroom",
     category: "bedroom",
   },
   {
     id: 3,
-    src: "/placeholder.svg?height=600&width=800",
+    src: bathroom,
     alt: "Modern bathroom",
     category: "bathroom",
   },
   {
     id: 4,
-    src: "/placeholder.svg?height=800&width=600",
+    src: kitchen,
     alt: "Fully equipped kitchen",
     category: "kitchen",
   },
   {
     id: 5,
-    src: "/placeholder.svg?height=600&width=800",
+    src: balkon,
     alt: "Balcony with sea view",
     category: "view",
     featured: true,
   },
   {
     id: 6,
-    src: "/placeholder.svg?height=800&width=600",
+    src: livingroom,
     alt: "Dining area",
     category: "interior",
   },
   {
     id: 7,
-    src: "/placeholder.svg?height=600&width=800",
+    src: soba2,
     alt: "Second bedroom",
     category: "bedroom",
   },
   {
     id: 8,
-    src: "/placeholder.svg?height=800&width=600",
+    src: kitchen,
     alt: "Kitchen appliances",
     category: "kitchen",
   },
   {
     id: 9,
-    src: "/placeholder.svg?height=600&width=800",
+    src: nightview,
     alt: "Sunset view from apartment",
     category: "view",
     featured: true,
   },
   {
     id: 10,
-    src: "/placeholder.svg?height=800&width=600",
+    src: bathroom,
     alt: "Shower area",
     category: "bathroom",
   },
   {
     id: 11,
-    src: "/placeholder.svg?height=600&width=800",
-    alt: "Living room sofa and TV",
+    src: livingroom,
+    alt: "Living room",
     category: "interior",
   },
   {
     id: 12,
-    src: "/placeholder.svg?height=800&width=600",
-    alt: "Bedroom wardrobe",
+    src: single,
+    alt: "Single bedroom",
     category: "bedroom",
   },
 ]

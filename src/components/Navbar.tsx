@@ -7,7 +7,6 @@ import { Link, useLocation } from "react-router-dom"
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [activeLang, setActiveLang] = useState("en")
   const location = useLocation()
 
   const toggleMenu = () => setIsOpen(!isOpen)
@@ -76,26 +75,7 @@ const Navbar: React.FC = () => {
               ))}
             </div>
 
-            {/* Language Toggle */}
-            <div className="flex items-center gap-2 border-l border-gray-200 pl-5">
-              <button
-                onClick={() => setActiveLang("hr")}
-                className={`text-sm font-medium transition-all duration-200 ${
-                  activeLang === "hr" ? "text-gray-900" : "text-gray-400 hover:text-gray-600"
-                }`}
-              >
-                🇭🇷 HR
-              </button>
-              <span className="text-gray-300">|</span>
-              <button
-                onClick={() => setActiveLang("en")}
-                className={`text-sm font-medium transition-all duration-200 ${
-                  activeLang === "en" ? "text-gray-900" : "text-gray-400 hover:text-gray-600"
-                }`}
-              >
-                🇬🇧 EN
-              </button>
-            </div>
+          
 
             {/* Book Now Button */}
             <a
@@ -156,25 +136,7 @@ const Navbar: React.FC = () => {
             </Link>
           ))}
 
-          {/* Mobile Language Toggle */}
-          <div className="flex items-center gap-4 py-2">
-            <button
-              onClick={() => setActiveLang("hr")}
-              className={`text-sm font-medium transition-all duration-200 ${
-                activeLang === "hr" ? "text-gray-900" : "text-gray-400"
-              }`}
-            >
-              🇭🇷 Croatian
-            </button>
-            <button
-              onClick={() => setActiveLang("en")}
-              className={`text-sm font-medium transition-all duration-200 ${
-                activeLang === "en" ? "text-gray-900" : "text-gray-400"
-              }`}
-            >
-              🇬🇧 English
-            </button>
-          </div>
+          
 
           {/* Mobile Book Now Button */}
           <div className="pt-2">
